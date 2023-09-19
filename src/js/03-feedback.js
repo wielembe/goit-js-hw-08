@@ -41,5 +41,8 @@ const sentForm = eventSent => {
     message: '',
   };
   form.reset();
+  if (email.value === '' || message.value === '') {
+    return alert('Uzupełnij wszystkie pola!');
+  }
 };
 form.addEventListener('submit', sentForm);

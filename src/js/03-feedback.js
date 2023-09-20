@@ -34,6 +34,9 @@ const sentForm = eventSent => {
     email: email.value,
     message: message.value,
   };
+  if (email.value === '' || message.value === '') {
+    return alert('Uzupełnij wszystkie pola!');
+  }
   console.log(objectData);
   localStorage.removeItem(LOCALSTORAGE_KEY);
   formState = {
@@ -41,8 +44,5 @@ const sentForm = eventSent => {
     message: '',
   };
   form.reset();
-  if (email.value === '' || message.value === '') {
-    return alert('Uzupełnij wszystkie pola!');
-  }
 };
 form.addEventListener('submit', sentForm);
